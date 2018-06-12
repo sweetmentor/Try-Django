@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth import authenticate 
 from django.http import HttpResponse
+from .forms import UserLoginForm
 # Create your views here.
 def login(request):
     if request.method =="POST":
@@ -15,7 +16,8 @@ def login(request):
         else: 
             return HttpResponse("That user or passwordis wrong")
     else:
-        return render (request, 'accounts/login.html')
+        login_form = UserLoginForm()
+        return render (request, 'accounts/login.html', {'form': login_form})
     
 def register(request):
     return render(request, 'accounts/register.html')
