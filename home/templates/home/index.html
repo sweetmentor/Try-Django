@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+   
+{% block content %}
+  
+<h3>Hello Welcome</h3>
+
+<ul>
+    {% for book in books %}
+    <li>{{ book.name }} - ({{ book.author.email }})</li>
+    {% endfor %}
+</ul>
+
+{% for author in authors %}
+<h4>{{ author.name}}</h4>
+<ul>
+   {% for book in author.books.all %}
+       <li>{{ book.name }}</li>    
+   {% endfor %}
+</ul>
+{% endfor %}
+
+
+
+
+
+
+
+{% endblock content %}
+
