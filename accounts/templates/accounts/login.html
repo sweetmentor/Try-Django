@@ -7,6 +7,8 @@
     <form method='POST'>
         {% csrf_token %}
         {{ form | as_bootstrap }}
+        
+        <p>Forgot your password? Click <a href="{% url 'password_reset' %}">here</a>.</p>
         <input type="submit" value="login"/>
         
         
